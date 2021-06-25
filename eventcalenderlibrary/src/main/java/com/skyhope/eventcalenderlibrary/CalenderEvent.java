@@ -645,7 +645,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         this.mCalenderDayClickListener = listener;
     }
 
-    public void goToDay(Date date) {
+
+    public void goToDay(Date date){
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         mCalendar.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
