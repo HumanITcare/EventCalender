@@ -56,4 +56,10 @@ public class PreferenceHelper {
         mEditor.remove(key);
         mEditor.apply();
     }
+
+    public void removeAll() {
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.clear();
+        mEditor.commit();
+    }
 }
