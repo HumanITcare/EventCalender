@@ -642,10 +642,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public void initCalderItemClickCallback(CalenderDayClickListener listener) {
+    public void initCalderItemClickCallback(CalenderDayClickListener listener, String type) {
         this.mCalenderDayClickListener = listener;
+        preferenceHelper.setType(type);
     }
 
+    
 
     public void goToDay(Date date) {
         Calendar c = Calendar.getInstance();
