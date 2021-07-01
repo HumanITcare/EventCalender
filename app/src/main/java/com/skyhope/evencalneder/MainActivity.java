@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onGetDay(DayContainerModel dayContainerModel) {
                 Log.d(TAG, dayContainerModel.getDate());
             }
-        },"type");
+        });
+        calenderEvent.setType("type");
     }
 }
