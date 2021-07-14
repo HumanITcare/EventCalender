@@ -54,6 +54,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private LinearLayout weekFourLayout;
     private LinearLayout weekFiveLayout;
     private LinearLayout weekSixLayout;
+    public String type="";
 
     private static final String[] MONTH_NAMES = {"January", "February", "March", "April",
             "May", "June", "July", "August",
@@ -127,7 +128,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
         initView(context);
 
-        preferenceHelper = PreferenceHelper.init(context);
+        preferenceHelper = PreferenceHelper.init(context, type);
     }
 
 
@@ -266,6 +267,11 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     eventsTextViewList[index].setText(event.getEventText());
                     eventsTextViewList[index].setVisibility(VISIBLE);
                     eventsTextViewList[index].setTextColor(event.getEventColor());
+                    eventsTextViewList[index].setBackgroundResource(R.drawable.drawable_circle);
+
+                    Drawable backgroundDrawable = DrawableCompat.wrap(eventsTextViewList[index].getBackground()).mutate();
+                    DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
+
                 } else {
                     eventsTextViewList[index].setVisibility(INVISIBLE);
                 }
@@ -283,10 +289,10 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                         }
                         mPreviousColor = mOffMonthDayColor;
                         mSelectedTexView = days[finalIndex];
-                        daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_rectangular);
+                        daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_circle);
 
                         Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
-                        DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
+                        DrawableCompat.setTint(backgroundDrawable, mSelectedDayTextColor);
 
                         mSelectedLinearLayout = daysContainer[finalIndex];
                         days[finalIndex].setTextColor(mSelectedDayTextColor);
@@ -326,20 +332,17 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
             model.setEvent(event);
             model.setHaveEvent(event != null);
 
+
             if (mToday.equals(model.getDate())) {
-                if (mSelectedTexView != null) {
+               /* if (mSelectedTexView != null) {
                     mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
                     mSelectedTexView.setTextColor(mPreviousColor);
                 }
                 mPreviousColor = mCurrentMonthDayColor;
                 mSelectedTexView = days[index];
-                daysContainer[index].setBackgroundResource(R.drawable.drawable_rectangular);
-
-                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
-                DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
-
+                
                 mSelectedLinearLayout = daysContainer[index];
-                days[index].setTextColor(mSelectedDayTextColor);
+                days[index].setTextColor(mSelectedDayTextColor);*/
             }
 
 
@@ -347,6 +350,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 eventsTextViewList[index].setText(event.getEventText());
                 eventsTextViewList[index].setVisibility(VISIBLE);
                 eventsTextViewList[index].setTextColor(event.getEventColor());
+
+                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+
+                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
+
             } else {
                 eventsTextViewList[index].setVisibility(INVISIBLE);
             }
@@ -532,6 +541,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     }
 
     private void initAttrs(AttributeSet attrs) {
+
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CalenderEvent);
 
         mBackgroundColor = typedArray.getColor(R.styleable.CalenderEvent_calender_background, DEFAULT_BACKGROUND_COLOR);
@@ -551,6 +561,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         nextButtonDrawable = typedArray.getDrawable(R.styleable.CalenderEvent_next_icon);
 
         prevButtonDrawable = typedArray.getDrawable(R.styleable.CalenderEvent_previous_icon);
+
 
         typedArray.recycle();
     }
@@ -647,9 +658,6 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
     }
 
-    public void setType(String type) {
-        preferenceHelper.setType(type);
-    }
 
     public void goToDay(Date date) {
         Calendar c = Calendar.getInstance();

@@ -23,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, 1);
-        Event event = new Event(calendar.getTimeInMillis(), "Test");
+        Event event = new Event(calendar.getTimeInMillis(), "Test", getResources().getColor(android.R.color.holo_red_dark));
         calenderEvent.addEvent(event);
-
         calenderEvent.initCalderItemClickCallback(new CalenderDayClickListener() {
             @Override
             public void onGetDay(DayContainerModel dayContainerModel) {
@@ -33,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        calenderEvent.setType("type");
+
     }
 }

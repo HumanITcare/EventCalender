@@ -20,21 +20,19 @@ public class PreferenceHelper {
     private static PreferenceHelper sInstance;
     private SharedPreferences mSharedPreferences;
 
-    String type = "";
 
-    public static PreferenceHelper init(Context context) {
+    public static PreferenceHelper init(Context context, String t) {
         if (sInstance == null) {
             sInstance = new PreferenceHelper(context);
         }
+
         return sInstance;
     }
 
-    public void setType(String t) {
-        type = t;
-    }
+
 
     public PreferenceHelper(Context context) {
-        mSharedPreferences = context.getSharedPreferences("EventCalender" + type, Context.MODE_PRIVATE);
+        mSharedPreferences = context.getSharedPreferences("EventCalender" , Context.MODE_PRIVATE);
     }
 
     public void write(String key, String value) {
