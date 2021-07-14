@@ -267,11 +267,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     eventsTextViewList[index].setText(event.getEventText());
                     eventsTextViewList[index].setVisibility(VISIBLE);
                     eventsTextViewList[index].setTextColor(event.getEventColor());
-                    eventsTextViewList[index].setBackgroundResource(R.drawable.drawable_circle);
-
-                    Drawable backgroundDrawable = DrawableCompat.wrap(eventsTextViewList[index].getBackground()).mutate();
-                    DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
-
+                    
                 } else {
                     eventsTextViewList[index].setVisibility(INVISIBLE);
                 }
