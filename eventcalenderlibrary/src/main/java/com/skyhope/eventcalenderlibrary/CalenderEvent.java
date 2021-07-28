@@ -1,5 +1,6 @@
 package com.skyhope.eventcalenderlibrary;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -206,6 +207,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     }
 
 
+    @SuppressLint("ResourceAsColor")
     private void initCalender(int selectedYear, int selectedMonth) {
 
         dayContainerList = new ArrayList<>();
@@ -353,6 +355,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
 
             } else {
+                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                DrawableCompat.setTint(backgroundDrawable, android.R.color.transparent);
                 eventsTextViewList[index].setVisibility(INVISIBLE);
             }
 
@@ -465,8 +469,6 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         } else {
             mCalendar.set(year + 1, 0, 1);
         }
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        initDaysInCalender(getdaysLayoutParams(), mContext, metrics);
         initCalender(mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH));
     }
 
@@ -479,8 +481,6 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         } else {
             mCalendar.set(year - 1, 11, 1);
         }
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        initDaysInCalender(getdaysLayoutParams(), mContext, metrics);
         initCalender(mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH));
     }
 
