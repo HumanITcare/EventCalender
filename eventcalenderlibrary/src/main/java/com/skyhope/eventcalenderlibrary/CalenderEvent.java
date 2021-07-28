@@ -647,6 +647,10 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         }
     }
 
+    public void refresh() {
+        initCalender(mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH));
+    }
+
     public void deleteEvents() {
         preferenceHelper.removeAll();
         dayContainerList.clear();
