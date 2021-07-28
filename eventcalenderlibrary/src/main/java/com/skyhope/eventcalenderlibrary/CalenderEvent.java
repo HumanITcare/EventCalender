@@ -268,8 +268,16 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     eventsTextViewList[index].setText(event.getEventText());
                     eventsTextViewList[index].setVisibility(VISIBLE);
                     eventsTextViewList[index].setTextColor(event.getEventColor());
-                    
+
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+
+                    Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                    DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
+
                 } else {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                    Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                    DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
                     eventsTextViewList[index].setVisibility(INVISIBLE);
                 }
 
@@ -424,7 +432,15 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 eventsTextViewList[index].setText(event.getEventText());
                 eventsTextViewList[index].setVisibility(VISIBLE);
                 eventsTextViewList[index].setTextColor(event.getEventColor());
+                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+
+                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
+
             } else {
+                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
                 eventsTextViewList[index].setVisibility(INVISIBLE);
             }
 
