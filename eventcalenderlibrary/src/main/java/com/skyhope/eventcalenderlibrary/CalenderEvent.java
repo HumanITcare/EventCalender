@@ -465,7 +465,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         } else {
             mCalendar.set(year + 1, 0, 1);
         }
-        deleteEvents();
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        initDaysInCalender(getdaysLayoutParams(), mContext, metrics);
         initCalender(mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH));
     }
 
@@ -478,7 +479,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         } else {
             mCalendar.set(year - 1, 11, 1);
         }
-        deleteEvents();
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        initDaysInCalender(getdaysLayoutParams(), mContext, metrics);
         initCalender(mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH));
     }
 
