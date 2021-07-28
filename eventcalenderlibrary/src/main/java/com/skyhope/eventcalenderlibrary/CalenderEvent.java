@@ -354,8 +354,9 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
 
             } else {
-                /*Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
-                DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);*/
+                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
+                DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
                 eventsTextViewList[index].setVisibility(INVISIBLE);
             }
 
