@@ -274,13 +274,13 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                         daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                     }
                     else if(borderType == 1) {
-                        daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_left_radius);
                     }
                     else if(borderType == 2) {
-                        daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_right_radius);
                     }
                     else {
-                        daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_no_radius);
                     }
 
                     Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
@@ -373,13 +373,13 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                 }
                 else if(borderType == 1) {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_left_radius);
                 }
                 else if(borderType == 2) {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_right_radius);
                 }
                 else {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_no_radius);
                 }
 
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
@@ -461,13 +461,13 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                 }
                 else if(borderType == 1) {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_left_radius);
                 }
                 else if(borderType == 2) {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_right_radius);
                 }
                 else {
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_no_radius);
                 }
 
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
