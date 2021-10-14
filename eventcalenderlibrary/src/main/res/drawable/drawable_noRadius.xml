@@ -13,10 +13,6 @@
             <size
                 android:width="40dp"
                 android:height="40dp" />
-            <corners android:bottomLeftRadius="30dp"
-                android:bottomRightRadius="30dp"
-                android:topLeftRadius="30dp"
-                android:topRightRadius="30dp" />
         </shape>
     </item>
 </layer-list>

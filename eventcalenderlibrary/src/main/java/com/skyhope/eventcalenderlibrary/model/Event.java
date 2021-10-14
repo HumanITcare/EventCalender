@@ -17,6 +17,7 @@ public class Event {
     private long time;
     private String eventText;
     private int eventColor;
+    private int borderType;
 
     public Event(long time, String eventText) {
         this.time = time;
@@ -27,6 +28,14 @@ public class Event {
         this.time = time;
         this.eventText = eventText;
         this.eventColor = eventColor;
+        this.borderType = 0;
+    }
+
+    public Event(long time, String eventText, int eventColor, int borderType) {
+        this.time = time;
+        this.eventText = eventText;
+        this.eventColor = eventColor;
+        this.borderType = borderType;
     }
 
     public long getTime() {
@@ -51,5 +60,13 @@ public class Event {
 
     public void setEventColor(int eventColor) {
         this.eventColor = eventColor;
+    }
+
+    public int getBorderType() {
+        return borderType;
+    }
+
+    public void setBorderType(int borderType) {
+        this.borderType = borderType;
     }
 }

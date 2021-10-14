@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -268,8 +269,19 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     eventsTextViewList[index].setText(event.getEventText());
                     eventsTextViewList[index].setVisibility(VISIBLE);
                     eventsTextViewList[index].setTextColor(event.getEventColor());
-
-                    daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                    int borderType = event.getBorderType();
+                    if(borderType == 0) {
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                    }
+                    else if(borderType == 1) {
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                    }
+                    else if(borderType == 2) {
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                    }
+                    else {
+                        daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                    }
 
                     Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                     DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
@@ -356,7 +368,19 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 eventsTextViewList[index].setVisibility(VISIBLE);
                 eventsTextViewList[index].setTextColor(event.getEventColor());
 
-                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                int borderType = event.getBorderType();
+                if(borderType == 0) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                }
+                else if(borderType == 1) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                }
+                else if(borderType == 2) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                }
+                else {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                }
 
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                 DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
@@ -432,7 +456,19 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 eventsTextViewList[index].setText(event.getEventText());
                 eventsTextViewList[index].setVisibility(VISIBLE);
                 eventsTextViewList[index].setTextColor(event.getEventColor());
-                daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                int borderType = event.getBorderType();
+                if(borderType == 0) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
+                }
+                else if(borderType == 1) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_leftRadius);
+                }
+                else if(borderType == 2) {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_rightRadius);
+                }
+                else {
+                    daysContainer[index].setBackgroundResource(R.drawable.drawable_noRadius);
+                }
 
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                 DrawableCompat.setTint(backgroundDrawable, event.getEventColor());
