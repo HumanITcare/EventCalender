@@ -69,6 +69,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
     private static final String TEXT_EVENT = " TEXT";
     private static final String COLOR_EVENT = " COLOR";
+    private static final String BORDER_EVENT = " BORDER";
 
     private Button buttonPrevious, buttonNext;
 
@@ -647,6 +648,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
         String textKey = date + TEXT_EVENT;
         String colorKey = date + COLOR_EVENT;
+        String borderKey = date + BORDER_EVENT;
 
         String eventText = preferenceHelper.readString(textKey);
 
@@ -655,7 +657,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
             if (color == 0) {
                 color = DEFAULT_TEXT_COLOR;
             }
-            return new Event(time, eventText, color);
+            int border = preferenceHelper.readInteger(borderKey);
+            return new Event(time, eventText, color, border);
         }
 
         return null;
@@ -672,9 +675,11 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
         String textKey = date + TEXT_EVENT;
         String colorKey = date + COLOR_EVENT;
+        String borderKey = date + BORDER_EVENT;
 
         preferenceHelper.write(textKey, event.getEventText());
         preferenceHelper.write(colorKey, event.getEventColor());
+        preferenceHelper.write(borderKey, event.getBorderType());
 
         DayContainerModel model = getDaysContainerModel(date);
         if (model != null) {
@@ -697,8 +702,11 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
         String date = TimeUtil.getDate(event.getTime());
         String textKey = date + TEXT_EVENT;
         String colorKey = date + COLOR_EVENT;
+        String borderKey = date + BORDER_EVENT;
+
         preferenceHelper.remove(textKey);
         preferenceHelper.remove(colorKey);
+        preferenceHelper.remove(borderKey);
 
         DayContainerModel model = getDaysContainerModel(date);
         if (model != null) {
