@@ -110,6 +110,8 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private Drawable nextButtonDrawable;
     private Drawable prevButtonDrawable;
 
+    private boolean isDayClickable = true;
+
     // Default component
     private static final int DEFAULT_BACKGROUND_COLOR = Color.WHITE;
     private static final int DEFAULT_SELECTED_DAY_COLOR = Color.WHITE;
@@ -305,24 +307,25 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 days[index].setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (isDayClickable) {
+                            if (mSelectedTexView != null) {
+                                mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
+                                mSelectedTexView.setTextColor(mPreviousColor);
+                            }
+                            mPreviousColor = mOffMonthDayColor;
+                            mSelectedTexView = days[finalIndex];
+                            daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_circle);
 
-                        if (mSelectedTexView != null) {
-                            mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
-                            mSelectedTexView.setTextColor(mPreviousColor);
-                        }
-                        mPreviousColor = mOffMonthDayColor;
-                        mSelectedTexView = days[finalIndex];
-                        daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_circle);
+                            Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
+                            DrawableCompat.setTint(backgroundDrawable, mSelectedDayTextColor);
 
-                        Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
-                        DrawableCompat.setTint(backgroundDrawable, mSelectedDayTextColor);
-
-                        mSelectedLinearLayout = daysContainer[finalIndex];
-                        days[finalIndex].setTextColor(mSelectedDayTextColor);
+                            mSelectedLinearLayout = daysContainer[finalIndex];
+                            days[finalIndex].setTextColor(mSelectedDayTextColor);
 
 
-                        if (mCalenderDayClickListener != null) {
-                            mCalenderDayClickListener.onGetDay(model);
+                            if (mCalenderDayClickListener != null) {
+                                mCalenderDayClickListener.onGetDay(model);
+                            }
                         }
                     }
                 });
@@ -410,23 +413,24 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG, "Hello");
+                    if (isDayClickable) {
+                        if (mSelectedTexView != null) {
+                            mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
+                            mSelectedTexView.setTextColor(mPreviousColor);
+                        }
+                        mPreviousColor = mCurrentMonthDayColor;
+                        mSelectedTexView = days[finalIndex];
+                        daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_rectangular);
 
-                    if (mSelectedTexView != null) {
-                        mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
-                        mSelectedTexView.setTextColor(mPreviousColor);
-                    }
-                    mPreviousColor = mCurrentMonthDayColor;
-                    mSelectedTexView = days[finalIndex];
-                    daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_rectangular);
+                        Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
+                        DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
 
-                    Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
-                    DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
+                        mSelectedLinearLayout = daysContainer[finalIndex];
+                        days[finalIndex].setTextColor(mSelectedDayTextColor);
 
-                    mSelectedLinearLayout = daysContainer[finalIndex];
-                    days[finalIndex].setTextColor(mSelectedDayTextColor);
-
-                    if (mCalenderDayClickListener != null) {
-                        mCalenderDayClickListener.onGetDay(model);
+                        if (mCalenderDayClickListener != null) {
+                            mCalenderDayClickListener.onGetDay(model);
+                        }
                     }
                 }
             });
@@ -503,22 +507,24 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG, "Hello");
-                    if (mSelectedTexView != null) {
-                        mSelectedTexView.setTextColor(mPreviousColor);
-                        mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
-                    }
-                    mPreviousColor = mOffMonthDayColor;
-                    mSelectedTexView = days[finalIndex];
-                    mSelectedLinearLayout = daysContainer[finalIndex];
-                    daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_rectangular);
+                    if (isDayClickable) {
+                        if (mSelectedTexView != null) {
+                            mSelectedTexView.setTextColor(mPreviousColor);
+                            mSelectedLinearLayout.setBackgroundResource(android.R.color.transparent);
+                        }
+                        mPreviousColor = mOffMonthDayColor;
+                        mSelectedTexView = days[finalIndex];
+                        mSelectedLinearLayout = daysContainer[finalIndex];
+                        daysContainer[finalIndex].setBackgroundResource(R.drawable.drawable_rectangular);
 
-                    Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
-                    DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
+                        Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[finalIndex].getBackground()).mutate();
+                        DrawableCompat.setTint(backgroundDrawable, mSelectorColor);
 
-                    days[finalIndex].setTextColor(mSelectedDayTextColor);
+                        days[finalIndex].setTextColor(mSelectedDayTextColor);
 
-                    if (mCalenderDayClickListener != null) {
-                        mCalenderDayClickListener.onGetDay(model);
+                        if (mCalenderDayClickListener != null) {
+                            mCalenderDayClickListener.onGetDay(model);
+                        }
                     }
                 }
             });
@@ -701,6 +707,10 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
             model.setHaveEvent(true);
             model.setEvent(event);
         }
+    }
+
+    public void setDayClickeable(boolean clickeable) {
+        this.isDayClickable = clickeable;
     }
 
     public void refresh() {
