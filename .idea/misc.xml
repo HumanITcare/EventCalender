@@ -11,6 +11,9 @@
         <entry key="eventcalenderlibrary/src/main/res/drawable/drawable_no_radius.xml" value="0.14583333333333334" />
         <entry key="eventcalenderlibrary/src/main/res/drawable/drawable_rectangular.xml" value="0.26927083333333335" />
         <entry key="eventcalenderlibrary/src/main/res/drawable/drawable_rightRadius.xml" value="0.26927083333333335" />
+        <entry key="eventcalenderlibrary/src/main/res/drawable/drawable_right_radius.xml" value="0.14583333333333334" />
+        <entry key="eventcalenderlibrary/src/main/res/layout/item_day.xml" value="0.10140295627296994" />
+        <entry key="eventcalenderlibrary/src/main/res/layout/main_calender.xml" value="0.1296875" />
       </map>
     </option>
   </component>

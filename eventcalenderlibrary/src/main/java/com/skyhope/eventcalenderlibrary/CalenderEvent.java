@@ -268,7 +268,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
                 if (model.isHaveEvent()) {
                     eventsTextViewList[index].setText(event.getEventText());
-                    eventsTextViewList[index].setVisibility(VISIBLE);
+                    if(event.getEventText() == "") {
+                        eventsTextViewList[index].setVisibility(GONE);
+                    }
+                    else {
+                        eventsTextViewList[index].setVisibility(VISIBLE);
+                    }
                     eventsTextViewList[index].setTextColor(event.getEventColor());
                     int borderType = event.getBorderType();
                     if(borderType == 0) {
@@ -291,7 +296,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                     daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                     Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                     DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
-                    eventsTextViewList[index].setVisibility(INVISIBLE);
+                    eventsTextViewList[index].setVisibility(GONE);
                 }
 
                 dayContainerList.add(model);
@@ -366,7 +371,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
             if (model.isHaveEvent()) {
                 eventsTextViewList[index].setText(event.getEventText());
-                eventsTextViewList[index].setVisibility(VISIBLE);
+                if(event.getEventText() == "") {
+                    eventsTextViewList[index].setVisibility(GONE);
+                }
+                else {
+                    eventsTextViewList[index].setVisibility(VISIBLE);
+                }
                 eventsTextViewList[index].setTextColor(event.getEventColor());
 
                 int borderType = event.getBorderType();
@@ -390,7 +400,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                 DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
-                eventsTextViewList[index].setVisibility(INVISIBLE);
+                eventsTextViewList[index].setVisibility(GONE);
             }
 
             dayContainerList.add(model);
@@ -455,7 +465,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
             if (model.isHaveEvent()) {
                 eventsTextViewList[index].setText(event.getEventText());
-                eventsTextViewList[index].setVisibility(VISIBLE);
+                if(event.getEventText() == "") {
+                    eventsTextViewList[index].setVisibility(GONE);
+                }
+                else {
+                    eventsTextViewList[index].setVisibility(VISIBLE);
+                }
                 eventsTextViewList[index].setTextColor(event.getEventColor());
                 int borderType = event.getBorderType();
                 if(borderType == 0) {
@@ -478,7 +493,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 daysContainer[index].setBackgroundResource(R.drawable.drawable_circle);
                 Drawable backgroundDrawable = DrawableCompat.wrap(daysContainer[index].getBackground()).mutate();
                 DrawableCompat.setTint(backgroundDrawable, Color.TRANSPARENT);
-                eventsTextViewList[index].setVisibility(INVISIBLE);
+                eventsTextViewList[index].setVisibility(GONE);
             }
 
             dayContainerList.add(model);
@@ -552,19 +567,19 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 final TextView day = new TextView(context);
                 day.setTextColor(Color.parseColor(CUSTOM_GREY));
                 day.setBackgroundColor(Color.TRANSPARENT);
-                day.setLayoutParams(new LinearLayout.LayoutParams(
+                /*day.setLayoutParams(new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                day.setTextSize((int) metrics.density * 5);
+                        ViewGroup.LayoutParams.WRAP_CONTENT));*/
+                //day.setTextSize((int) metrics.density * 5);
                 day.setSingleLine();
-                day.setPadding(10, 10, 10, 10);
+                //day.setPadding(10, 10, 10, 10);
                 day.setGravity(Gravity.CENTER);
 
 
                 TextView textView = new TextView(context);
-                textView.setLayoutParams(new LinearLayout.LayoutParams(
+                /*textView.setLayoutParams(new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
+                        ViewGroup.LayoutParams.WRAP_CONTENT));*/
                 textView.setTextSize(8);
                 textView.setMaxLines(1);
 
@@ -572,9 +587,9 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
                 InputFilter[] fArray = new InputFilter[1];
                 fArray[0] = new InputFilter.LengthFilter(maxLength);
                 textView.setFilters(fArray);
-                textView.setText("H");
+                textView.setText("");
                 textView.setGravity(Gravity.CENTER);
-                textView.setVisibility(INVISIBLE);
+                textView.setVisibility(GONE);
 
                 linearLayout.addView(day);
                 linearLayout.addView(textView);
