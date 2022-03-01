@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventCalenderLibrary</string>
+    <string name="January">Ianuarie</string>
+    <string name="February">Februarie</string>
+    <string name="March">Martie</string>
+    <string name="April">Aprilie</string>
+    <string name="May">Mai</string>
+    <string name="June">Iunie</string>
+    <string name="July">Iulie</string>
+    <string name="August">August</string>
+    <string name="September">Septembrie</string>
+    <string name="October">Octombrie</string>
+    <string name="November">Noiembrie</string>
+    <string name="December">Decembrie</string>
+    <string name="mon">Lu</string>
+    <string name="tue">Ma</string>
+    <string name="wed">Mi</string>
+    <string name="thu">Jo</string>
+    <string name="fri">Vi</string>
+    <string name="sat">Sb</string>
+    <string name="sun">Du</string>
+</resources>
