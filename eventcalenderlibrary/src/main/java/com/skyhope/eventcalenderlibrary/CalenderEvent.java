@@ -58,9 +58,9 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private LinearLayout weekSixLayout;
     public String type="";
 
-    private static final String[] MONTH_NAMES = {"January", "February", "March", "April",
-            "May", "June", "July", "August",
-            "September", "October", "November", "December"};
+    private static final String[] MONTH_NAMES = {String.valueOf(R.string.January), String.valueOf(R.string.February), String.valueOf(R.string.March), String.valueOf(R.string.April),
+            String.valueOf(R.string.May), String.valueOf(R.string.June), String.valueOf(R.string.July), String.valueOf(R.string.August),
+            String.valueOf(R.string.September), String.valueOf(R.string.October), String.valueOf(R.string.November), String.valueOf(R.string.December)};
 
     private LinearLayout[] weeks;
     private TextView[] days;
