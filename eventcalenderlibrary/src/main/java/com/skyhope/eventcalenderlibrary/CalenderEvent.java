@@ -55,12 +55,9 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private LinearLayout weekSixLayout;
     public String type="";
 
-    public static final String[] MONTH_NAMES = {String.valueOf(R.string.January), String.valueOf(R.string.February), String.valueOf(R.string.March), String.valueOf(R.string.April),
-            String.valueOf(R.string.May), String.valueOf(R.string.June), String.valueOf(R.string.July), String.valueOf(R.string.August),
-            String.valueOf(R.string.September), String.valueOf(R.string.October), String.valueOf(R.string.November), String.valueOf(R.string.December)};
+    public static  String[] MONTH_NAMES = {};
 
-    public static final String[] WEEK_NAMES = {String.valueOf(R.string.sun), String.valueOf(R.string.mon), String.valueOf(R.string.tue), String.valueOf(R.string.wed),
-            String.valueOf(R.string.thu), String.valueOf(R.string.fri), String.valueOf(R.string.sat)};
+    public static  String[] WEEK_NAMES = {};
 
     private LinearLayout[] weeks;
     private TextView[] days;
@@ -123,6 +120,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
     public CalenderEvent(Context context) {
         super(context);
+        MONTH_NAMES = new String[]{context.getString(R.string.January), context.getString(R.string.February), context.getString(R.string.March), context.getString(R.string.April),
+                context.getString(R.string.May), context.getString(R.string.June), context.getString(R.string.July), context.getString(R.string.August),
+                context.getString(R.string.September), context.getString(R.string.October), context.getString(R.string.November), context.getString(R.string.December)};
+
+        WEEK_NAMES = new String[]{context.getString(R.string.sun), context.getString(R.string.mon), context.getString(R.string.tue), context.getString(R.string.wed),
+                context.getString(R.string.thu), context.getString(R.string.fri), context.getString(R.string.sat)};
     }
 
     public CalenderEvent(Context context, @Nullable AttributeSet attrs) {
@@ -189,7 +192,9 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
         for (int i = 0; i < linearLayoutWeak.getChildCount(); i++) {
             TextView textViewWeek = (TextView) linearLayoutWeak.getChildAt(i);
-            textViewWeek.setText(WEEK_NAMES[i]);
+            if(WEEK_NAMES.length-1 > i) {
+                textViewWeek.setText(WEEK_NAMES[i]);
+            }
             textViewWeek.setTextColor(mWeekNameColor);
         }
 
