@@ -55,9 +55,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private LinearLayout weekSixLayout;
     public String type="";
 
-    private static final String[] MONTH_NAMES = {String.valueOf(R.string.January), String.valueOf(R.string.February), String.valueOf(R.string.March), String.valueOf(R.string.April),
+    public static final String[] MONTH_NAMES = {String.valueOf(R.string.January), String.valueOf(R.string.February), String.valueOf(R.string.March), String.valueOf(R.string.April),
             String.valueOf(R.string.May), String.valueOf(R.string.June), String.valueOf(R.string.July), String.valueOf(R.string.August),
             String.valueOf(R.string.September), String.valueOf(R.string.October), String.valueOf(R.string.November), String.valueOf(R.string.December)};
+
+    public static final String[] WEEK_NAMES = {String.valueOf(R.string.sun), String.valueOf(R.string.mon), String.valueOf(R.string.tue), String.valueOf(R.string.wed),
+            String.valueOf(R.string.thu), String.valueOf(R.string.fri), String.valueOf(R.string.sat)};
 
     private LinearLayout[] weeks;
     private TextView[] days;
@@ -186,6 +189,7 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
         for (int i = 0; i < linearLayoutWeak.getChildCount(); i++) {
             TextView textViewWeek = (TextView) linearLayoutWeak.getChildAt(i);
+            textViewWeek.setText(WEEK_NAMES[i]);
             textViewWeek.setTextColor(mWeekNameColor);
         }
 
