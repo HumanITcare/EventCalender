@@ -55,9 +55,12 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
     private LinearLayout weekSixLayout;
     public String type="";
 
-    public static  String[] MONTH_NAMES = {};
+    public  String[] MONTH_NAMES = {this.getContext().getString(R.string.January), this.getContext().getString(R.string.February), this.getContext().getString(R.string.March), this.getContext().getString(R.string.April),
+            this.getContext().getString(R.string.May), this.getContext().getString(R.string.June), this.getContext().getString(R.string.July), this.getContext().getString(R.string.August),
+            this.getContext().getString(R.string.September), this.getContext().getString(R.string.October), this.getContext().getString(R.string.November), this.getContext().getString(R.string.December)};;
 
-    public static  String[] WEEK_NAMES = {};
+    public  String[] WEEK_NAMES = {this.getContext().getString(R.string.sun), this.getContext().getString(R.string.mon), this.getContext().getString(R.string.tue), this.getContext().getString(R.string.wed),
+            this.getContext().getString(R.string.thu), this.getContext().getString(R.string.fri), this.getContext().getString(R.string.sat)};
 
     private LinearLayout[] weeks;
     private TextView[] days;
@@ -120,12 +123,6 @@ public class CalenderEvent extends LinearLayout implements View.OnClickListener 
 
     public CalenderEvent(Context context) {
         super(context);
-        MONTH_NAMES = new String[]{context.getString(R.string.January), context.getString(R.string.February), context.getString(R.string.March), context.getString(R.string.April),
-                context.getString(R.string.May), context.getString(R.string.June), context.getString(R.string.July), context.getString(R.string.August),
-                context.getString(R.string.September), context.getString(R.string.October), context.getString(R.string.November), context.getString(R.string.December)};
-
-        WEEK_NAMES = new String[]{context.getString(R.string.sun), context.getString(R.string.mon), context.getString(R.string.tue), context.getString(R.string.wed),
-                context.getString(R.string.thu), context.getString(R.string.fri), context.getString(R.string.sat)};
     }
 
     public CalenderEvent(Context context, @Nullable AttributeSet attrs) {
