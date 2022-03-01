@@ -1,13 +1,12 @@
 package com.skyhope.eventcalenderlibrary;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -19,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.skyhope.eventcalenderlibrary.helper.PreferenceHelper;
 import com.skyhope.eventcalenderlibrary.helper.TimeUtil;
@@ -27,7 +25,6 @@ import com.skyhope.eventcalenderlibrary.listener.CalenderDayClickListener;
 import com.skyhope.eventcalenderlibrary.model.DayContainerModel;
 import com.skyhope.eventcalenderlibrary.model.Event;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
